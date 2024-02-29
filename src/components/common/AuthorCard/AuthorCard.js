@@ -3,27 +3,25 @@ import {
   Card,
   CardContent,
   CardActions,
-  CardMedia,
   Typography,
   Button,
 } from "@mui/material";
 
-function CardBook({ image, title, author, price, category, buttonText }) {
+const AuthorCard = ({ author, category, count, buttonText }) => {
   return (
     <Card>
-      <CardMedia component="img" height="300" width="215" image={`./images/${image}`} alt={title} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          {author}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {author}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Цена: {price}
+          Количество книг: {count}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Категория: ${category}
+          Категория: {category}
         </Typography>
       </CardContent>
       <CardActions>
@@ -31,6 +29,6 @@ function CardBook({ image, title, author, price, category, buttonText }) {
       </CardActions>
     </Card>
   );
-}
+};
 
-export default CardBook;
+export default AuthorCard;
