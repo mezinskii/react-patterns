@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Container } from "@mui/material";
 import RenderItems from "../../modules/home/RenderItems/RenderItems";
 import CardBook from "../../components/common/CardBook/CardBook";
 import AuthorCard from "../../components/common/AuthorCard/AuthorCard";
@@ -27,24 +26,16 @@ const Home = () => {
 
   return (
     <>
-      <Container>
-        <RenderItems
-          items={books}
-          title="Лучшие книги"
-          render={(book) => (
-            <CardBook key={book.id} {...book} buttonText="Добавить" />
-          )}
-        />
-      </Container>
-      <Container>
-        <RenderItems
-          items={authors}
-          title="Лучшие авторы"
-          render={(author) => (
-            <AuthorCard key={author.id} {...author} buttonText="Смотреть" />
-          )}
-        />
-      </Container>
+      <RenderItems
+        title="Лучшие книги"
+        items={books}
+        render={(book) => <CardBook key={book.id} {...book} />}
+      />
+       <RenderItems
+        title="Лучшие авторы"
+        items={authors}
+        render={(author) => <AuthorCard key={author.id} {...author} />}
+      />
     </>
   );
 };
